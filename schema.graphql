@@ -1,0 +1,114 @@
+type EventsSummary {
+  id: ID!
+  deposit: [Deposit!]! @derivedFrom(field: "eventsSummary")
+  depositsCount: BigInt!
+  initialized: [Initialized!]! @derivedFrom(field: "eventsSummary")
+  initializedsCount: BigInt!
+  ownershipTransferred: [OwnershipTransferred!]! @derivedFrom(field: "eventsSummary")
+  ownershipTransferredsCount: BigInt!
+  paused: [Paused!]! @derivedFrom(field: "eventsSummary")
+  pausedsCount: BigInt!
+  pauserRegistrySet: [PauserRegistrySet!]! @derivedFrom(field: "eventsSummary")
+  pauserRegistrySetsCount: BigInt!
+  shareWithdrawalQueued: [ShareWithdrawalQueued!]! @derivedFrom(field: "eventsSummary")
+  shareWithdrawalQueuedsCount: BigInt!
+  strategyAddedToDepositWhitelist: [StrategyAddedToDepositWhitelist!]! @derivedFrom(field: "eventsSummary")
+  strategyAddedToDepositWhitelistsCount: BigInt!
+  strategyRemovedFromDepositWhitelist: [StrategyRemovedFromDepositWhitelist!]! @derivedFrom(field: "eventsSummary")
+  strategyRemovedFromDepositWhitelistsCount: BigInt!
+  strategyWhitelisterChanged: [StrategyWhitelisterChanged!]! @derivedFrom(field: "eventsSummary")
+  strategyWhitelisterChangedsCount: BigInt!
+  unpaused: [Unpaused!]! @derivedFrom(field: "eventsSummary")
+  unpausedsCount: BigInt!
+  withdrawalCompleted: [WithdrawalCompleted!]! @derivedFrom(field: "eventsSummary")
+  withdrawalCompletedsCount: BigInt!
+  withdrawalDelayBlocksSet: [WithdrawalDelayBlocksSet!]! @derivedFrom(field: "eventsSummary")
+  withdrawalDelayBlocksSetsCount: BigInt!
+  withdrawalQueued: [WithdrawalQueued!]! @derivedFrom(field: "eventsSummary")
+  withdrawalQueuedsCount: BigInt!
+}
+
+type Deposit {
+  id: ID!
+  depositor: String!
+  token: String!
+  strategy: String!
+  shares: BigInt!
+  eventsSummary: String!
+}
+type Initialized {
+  id: ID!
+  version: BigInt!
+  eventsSummary: String!
+}
+type OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+  eventsSummary: String!
+}
+type Paused {
+  id: ID!
+  account: String!
+  newPausedStatus: BigInt!
+  eventsSummary: String!
+}
+type PauserRegistrySet {
+  id: ID!
+  pauserRegistry: String!
+  newPauserRegistry: String!
+  eventsSummary: String!
+}
+type ShareWithdrawalQueued {
+  id: ID!
+  depositor: String!
+  nonce: BigInt!
+  strategy: String!
+  shares: BigInt!
+  eventsSummary: String!
+}
+type StrategyAddedToDepositWhitelist {
+  id: ID!
+  strategy: String!
+  eventsSummary: String!
+}
+type StrategyRemovedFromDepositWhitelist {
+  id: ID!
+  strategy: String!
+  eventsSummary: String!
+}
+type StrategyWhitelisterChanged {
+  id: ID!
+  previousAddress: String!
+  newAddress: String!
+  eventsSummary: String!
+}
+type Unpaused {
+  id: ID!
+  account: String!
+  newPausedStatus: BigInt!
+  eventsSummary: String!
+}
+type WithdrawalCompleted {
+  id: ID!
+  depositor: String!
+  nonce: BigInt!
+  withdrawer: String!
+  withdrawalRoot: String!
+  eventsSummary: String!
+}
+type WithdrawalDelayBlocksSet {
+  id: ID!
+  previousValue: BigInt!
+  newValue: BigInt!
+  eventsSummary: String!
+}
+type WithdrawalQueued {
+  id: ID!
+  depositor: String!
+  nonce: BigInt!
+  withdrawer: String!
+  delegatedAddress: String!
+  withdrawalRoot: String!
+  eventsSummary: String!
+}
